@@ -18,8 +18,11 @@ public class Person {
     }
 
     public void setFirstName(String firstName) {
-        if (firstName == null || firstName.length() < 2) {
-            throw new NameUndefinedException();
+        if (firstName == null) {
+            throw new NameUndefinedException("Imię jest nieprawidłowe: " + firstName);
+        }
+        if (firstName.length() < 2) {
+            throw new NameUndefinedException("Imię jest za krótkie: " + firstName);
         }
         this.firstName = firstName;
     }
@@ -29,8 +32,11 @@ public class Person {
     }
 
     public void setLastName(String lastName) {
-        if (lastName == null || lastName.length() < 2) {
-            throw new NameUndefinedException();
+        if (lastName == null) {
+            throw new NameUndefinedException("Nazwisko jest nieprawidłowe: " + lastName);
+        }
+        if (lastName.length() < 2) {
+            throw new NameUndefinedException("Nazwisko jest za krótkie: " + lastName);
         }
         this.lastName = lastName;
     }
@@ -41,7 +47,7 @@ public class Person {
 
     public void setAge(int age) {
         if (age < 1) {
-            throw new IncorrectAgeException();
+            throw new IncorrectAgeException("Nieprawidłowy wiek!");
         }
         this.age = age;
     }
